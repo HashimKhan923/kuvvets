@@ -28,7 +28,7 @@ Route::post('/contactus', '\App\Http\Controllers\SuperAdmin\ContactUsController@
 // Route::post('/admin/registration/process', '\App\Http\Controllers\SuperAdmin\TenantController@registerAdmin');
 
 
-Route::group(['middleware' => ['tenant']], function () {
+// Route::group(['middleware' => ['tenant']], function () {
 
 // Route::post('/admin/product_key', '\App\Http\Controllers\SuperAdmin\TenantController@product_key');    
 
@@ -302,4 +302,4 @@ Route::group(['middleware' => ['auth.token']], function(){
 });
        
 
-});     
+// });     
