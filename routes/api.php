@@ -47,6 +47,10 @@ Route::get('/logout/{id}', 'App\Http\Controllers\AuthController@logout');
 /// admin Register
 Route::post('/admin/register', 'App\Http\Controllers\Admin\AuthController@register');
 
+/// testing route
+Route::get('/test', function () {
+    return response()->json(['message' => 'API is working fine'], 200);
+}); 
 
 Route::group(['middleware' => ['auth.token']], function(){
 
