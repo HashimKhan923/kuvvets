@@ -20,22 +20,22 @@ class ContactUsController extends Controller
             'message' => $request->message,
         ]);
 
-        Mail::send(
-            'mails.contactus',
-            [
-                'first_name' => $request->first_name,
-                'last_name' => $request->last_name,
-                'email' => $request->email,
-                'phone_number' => $request->phone_number,
-                'message1' => $request->message,
-            ],
-            function ($message) use ($request) { 
-                $message->from('support@lockmytimes.com','LockMyTime');
-                $message->to('support@lockmytimes.com');
-                $message->replyTo($request->email);
-                $message->subject('Contact');
-            }
-        );
+        // Mail::send(
+        //     'mails.contactus',
+        //     [
+        //         'first_name' => $request->first_name,
+        //         'last_name' => $request->last_name,
+        //         'email' => $request->email,
+        //         'phone_number' => $request->phone_number,
+        //         'message1' => $request->message,
+        //     ],
+        //     function ($message) use ($request) { 
+        //         $message->from('support@lockmytimes.com','LockMyTime');
+        //         $message->to('support@lockmytimes.com');
+        //         $message->replyTo($request->email);
+        //         $message->subject('Contact');
+        //     }
+        // );
 
         return response()->json(['message'=>'Submited Successfully!']);
     }
