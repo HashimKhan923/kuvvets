@@ -72,7 +72,7 @@
       </p>
     </div>
     <div class="footer">
-      &copy; 2025 LockMyTime. All rights reserved.
+      &copy; 2025 Kuvvets. All rights reserved.
     </div>
   </div>
 </body>
