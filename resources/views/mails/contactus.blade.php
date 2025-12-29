@@ -60,7 +60,7 @@
 <body>
   <div class="email-wrapper">
     <div class="email-header">
-      <img src="https://yourdomain.com/logo.png" alt="Company Logo">
+      <!-- <img src="https://yourdomain.com/logo.png" alt="Company Logo"> -->
     </div>
     <div class="email-body">
       <h2>New Contact Us Submission</h2>
