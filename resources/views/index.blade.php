@@ -996,8 +996,8 @@
                             <i data-lucide="mail" class="text-2xl text-primary"></i>
                         </div>
                         <div>
-                            <h5 class="text-base text-muted font-medium mb-1">support@lockmytimes.com</h5>
-                            <a href="mailto:support@lockmytimes.com" class="text-xs text-primary font-bold uppercase cursor-pointer">Say hello</a>
+                            <h5 class="text-base text-muted font-medium mb-1">support@kuvvets.com</h5>
+                            <a href="mailto:support@kuvvets.com" class="text-xs text-primary font-bold uppercase cursor-pointer">Say hello</a>
                         </div>
                     </div>
 

@@ -50,7 +50,7 @@ class AuthController extends Controller
                     'token' => $token,
                 ],
                 function ($message) use ($user) {
-                    $message->from('support@lockmytimes.com', 'Lockmytimes');
+                    $message->from('support@kuvvets.com', 'Kuvvets');
                     $message->to($user->email);
                     $message->subject('Verification');
                 }
@@ -109,7 +109,7 @@ class AuthController extends Controller
                 ], 
             
             function ($message) use ($query) {
-                $message->from('support@lockmytimes.com','Lockmytimes');
+                $message->from('support@kuvvets.com','Lockmytimes');
                 $message->to($query->email);
                 $message->subject('Forget Password');
             });

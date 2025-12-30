@@ -200,7 +200,7 @@ class UserController extends Controller
                 'product_key' => $request->tenant_id,
             ],
             function ($message) use ($request) { 
-                $message->from('support@lockmytimes.com','Lockmytimes');
+                $message->from('support@kuvvets.com','Lockmytimes');
                 $message->to($request->email);
                 $message->subject('Employee Account Created');
             }

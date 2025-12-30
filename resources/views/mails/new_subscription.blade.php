@@ -83,7 +83,7 @@
         </table>
         <br><br><br>
         <p>If you have any questions or need assistance, our support team is always ready to help. Reach out anytime at 
-            <a href="mailto:support@lockmytimes.com">support@lockmytimes.com</a>.
+            <a href="mailto:support@kuvvets.com">support@kuvvets.com</a>.
         </p>
         <p>Welcome aboard,<br>Lockmytimes Team</p>
     </td>

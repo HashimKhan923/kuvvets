@@ -130,7 +130,7 @@ class TenantController extends Controller
                 'product_key' => $tenantId,
             ],
             function ($message) use ($request) { 
-                $message->from('support@lockmytimes.com','Lockmytimes');
+                $message->from('support@kuvvets.com','Lockmytimes');
                 $message->to($request->email);
                 $message->subject('New Subscription Created');
             }
