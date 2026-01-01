@@ -15,7 +15,7 @@ class ForkLiftController extends Controller
     public function index()
     {
         $forklifts = ForkLift::all();
-        return response()->json(['forklifts', $forklifts]);
+        return response()->json(['forklifts' => $forklifts]);
     }
 
     public function store(Request $request)

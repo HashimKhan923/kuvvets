@@ -40,77 +40,37 @@ class UserController extends Controller
     public function create(Request $request)
     {
 
+        $imagePath = null;
 
-        $user = User::create([
-            'email' => $request->email,
-            'uu_id' => $request->employee_id,
-            'shift_id' => $request->shift_id,
-            'password' => Hash::make($request->password),
-            'role_id' => $request->role_id,
-            'location_id' => $request->location_id,
-            'tenant_id' => $request->tenant_id,
-            'status' => 1
-        ]);
-
-        $imagePath = '';
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             if ($file->isValid()) {
-                $folder = public_path('profile');
-
-                if (!file_exists($folder)) {
-                    mkdir($folder, 0755, true);
-                }
-
                 $fileName = time() . '_' . $file->getClientOriginalName();
-                $file->move($folder, $fileName);
+                $file->move(public_path('profile'), $fileName);
                 $imagePath = 'profile/' . $fileName;
             }
         }
 
-
-        $personal_info = PersonalInfo::create([
-            'user_id' => $user->id,
-            'first_name'=> $request->first_name,
-            'middle_name'=> $request->middle_name,
-            'last_name'=> $request->last_name,
-            'national_id'=> $request->national_id,
-            'nationality'=> $request->nationality,
-            'blood_group'=> $request->blood_group,
-            'martial_status'=> $request->martial_status,
-            'date_of_birth'=> $request->date_of_birth,
-            'gender'=> $request->gender,
-            'photo' => $imagePath,
-        ]);
-
-        $contact_info = ContactInfo::create([
-            'user_id' => $user->id,
-            'work_email'=> $request->work_email,
-            'personal_email'=> $request->personal_email,
-            'work_phone'=> $request->work_phone,
-            'personal_phone'=> $request->personal_phone,
-            'address'=> $request->address,
-            'city'=> $request->city,
-            'state'=> $request->state,
-            'zip_code'=> $request->zip_code,
-            'country'=> $request->country,
-        ]);
-
-        $professional_details = ProfessionalDetails::create([
-            'user_id' => $user->id,
-            'skills'=> $request->skills,
-            'qualifications'=> $request->qualifications,
-            'experience'=> $request->experience,
-        ]);
-
-        $job_info = JobInfo::create([
-            'user_id' => $user->id,
-            'department_id'=> $request->department_id,
-            'position'=> $request->position,
-            'designation'=> $request->designation,
-            'manager_id'=> $request->manager_id,
-            'date_of_hire'=> $request->date_of_hire,
-            'employment_type'=> $request->employment_type,
+        User::create([
+            'uu_id' => $request->employee_id,
+            'name' => $request->first_name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'address' => $request->address,
+            'profile_image' => $imagePath,
+            'gender' => $request->gender,
+            'date_of_birth' => $request->date_of_birth,
+            'national_id' => $request->national_id,
+            'job_title' => $request->job_title,
+            'password' => Hash::make($request->password),
+            'department_id' => $request->department_id,
+            'manager_id' => $request->manager_id,
+            'supervisor_id' => $request->supervisor_id,
+            'shift_id' => $request->shift_id,
+            'status' => 1,
+            'role_id' => $request->role_id,
+            'location_id' => $request->location_id,
+            'forklift_id' => $request->forklift_id,
         ]);
 
         if($request->leave_types)
@@ -130,65 +90,6 @@ class UserController extends Controller
 
 
 
-        // $allowanceNames = $request->input('allowance_name');
-        // $allowanceValues = $request->input('allowance_value');
-        // $deductionNames = $request->input('deduction_name');
-        // $deductionValues = $request->input('deduction_value');
-
-        // if(count($allowanceNames) > 0)
-        // {
-        //     $allowances = [];
-        //     for ($i = 0; $i < count($allowanceNames); $i++) {
-        //         $allowances[$allowanceNames[$i]] = $allowanceValues[$i];
-        //     }
-        // }
-
-        // if(count($deductionNames) > 0)
-        // {
-        // $deductions = [];
-        // for ($i = 0; $i < count($deductionNames); $i++) {
-        //     $deductions[$deductionNames[$i]] = $deductionValues[$i];
-        // }
-        // }
-
-        $compensation_info = CompensationInfo::create([
-            'user_id' => $user->id,
-            'basic_salary'=> $request->basic_salary,
-            'allowances'=> $request->allowances,
-            'deductions'=> $request->deductions,
-            'total_salary' => $request->total_salary,
-            'salary_payment_duration' => $request->salary_payment_duration,
-            'bank_account'=> $request->bank_account,
-
-        ]);
-
-        $account_info = AccountInformation::create([
-            'user_id' => $user->id,
-            'bank_name'=> $request->bank_name,
-            'routing_number'=> $request->routing_number,
-            'account_title'=> $request->account_title,
-            'iban_number' => $request->iban_number,
-        ]);
-
-        $over_time = OverTime::create([
-            'user_id' => $user->id,
-            'maximum_hours_limit'=> $request->maximum_hours_limit,
-            'status' => 1,
-        ]);
-
-        
-
-        // $over_time = OverTime::create([
-        //     'emp_id' => $user->id,
-        //     'time_limit'=> $request->time_limit,
-        //     'rate'=> $request->rate,
-        // ]);
-
-        // $additional_info = AdditionalInfo::create([
-        //     'user_id' => $user->id,
-        //     'notes'=> $request->notes,
-        //     'preferences'=> $request->preferences,
-        // ]);
 
 
         Mail::send(
@@ -197,7 +98,6 @@ class UserController extends Controller
                 'name' => $request->first_name,
                 'email' => $request->email,
                 'password' => $request->password,
-                'product_key' => $request->tenant_id,
             ],
             function ($message) use ($request) { 
                 $message->from('support@kuvvets.com','Lockmytimes');
@@ -218,7 +118,7 @@ class UserController extends Controller
 
     public function view($id)
     {
-        $data = User::with(['shift', 'department', 'role',  'contactInfo', 'professionalDetails', 'jobInfo','compensationInfo', 'additionalInfo','accountInfo','leaveBalance'])
+        $data = User::with(['shift', 'department', 'role','leaveBalance'])
                     ->where('id', $id)
                     ->firstOrFail();
     
@@ -232,31 +132,15 @@ class UserController extends Controller
         return response()->json(['data'=>$data]);  
     }
 
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
+        $user = User::findOrFail($id);
 
-    
-        $user = User::findOrFail($request->user_id);
-    
-        $user->update([
-            'email' => $request->email,
-            'uu_id' => $request->employee_id,
-            'shift_id' => $request->shift_id,
-            'role_id' => $request->role_id,
-            'location_id' => $request->location_id,
-            'status' => 1
-        ]);
-    
-        if ($request->filled('password')) {
-            $user->update([
-                'password' => Hash::make($request->password),
-            ]);
-        }
-    
-        
-        $imagePath = null;
+        /**
+         * Handle profile image upload
+         */
+        $imagePath = $user->profile_image;
 
-        // Handle image upload only if new file is provided
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             if ($file->isValid()) {
@@ -266,140 +150,83 @@ class UserController extends Controller
             }
         }
 
-        // Get existing personal info
-        $personalInfo = $user->personalInfo()->first();
-
-        $user->personalInfo()->updateOrCreate(
-            ['user_id' => $user->id],
-            [
-                'first_name'     => $request->first_name,
-                'middle_name'    => $request->middle_name,
-                'last_name'      => $request->last_name,
-                'national_id'    => $request->national_id,
-                'nationality'    => $request->nationality,
-                'blood_group'    => $request->blood_group,
-                'martial_status' => $request->martial_status,
-                'date_of_birth'  => $request->date_of_birth,
-                'gender'         => $request->gender,
-                'photo'          => $imagePath ?? optional($personalInfo)->photo,
-            ]
-        );
-    
-        $user->contactInfo()->updateOrCreate(
-            ['user_id' => $user->id],
-            [
-            'work_email'=> $request->work_email,
-            'personal_email'=> $request->personal_email,
-            'work_phone'=> $request->work_phone,
-            'personal_phone'=> $request->personal_phone,
-            'address' => $request->address,
-            'city' => $request->city,
-            'state' => $request->state,
-            'zip_code' => $request->zip_code,
-            'country' => $request->country,
-        ]);
-    
-        $user->professionalDetails()->updateOrCreate(
-            ['user_id' => $user->id],[
-            'skills' => $request->skills,
-            'qualifications' => $request->qualifications,
-            'experience' => $request->experience,
-        ]);
-    
-        $user->jobInfo()->updateOrCreate(
-            ['user_id' => $user->id],[
-            'department_id' => $request->department_id,
-            'designation' => $request->designation,
-            'manager_id' => $request->manager_id,
-            'date_of_hire' => $request->date_of_hire,
-            'employment_type' => $request->employment_type,
+        /**
+         * Update user data
+         */
+        $user->update([
+            'uu_id'          => $request->employee_id,
+            'name'           => $request->first_name,
+            'email'          => $request->email,
+            'phone'          => $request->phone,
+            'address'        => $request->address,
+            'profile_image'  => $imagePath,
+            'gender'         => $request->gender,
+            'date_of_birth'  => $request->date_of_birth,
+            'national_id'    => $request->national_id,
+            'job_title'      => $request->job_title,
+            'department_id'  => $request->department_id,
+            'manager_id'     => $request->manager_id,
+            'supervisor_id'  => $request->supervisor_id,
+            'shift_id'       => $request->shift_id,
+            'role_id'        => $request->role_id,
+            'location_id'    => $request->location_id,
+            'forklift_id'    => $request->forklift_id,
+            'status'         => $request->status ?? 1,
         ]);
 
-        LeaveBalance::where('user_id', $user->id)->delete();
+        /**
+         * Update password only if provided
+         */
+        if ($request->filled('password')) {
+            $user->update([
+                'password' => Hash::make($request->password),
+            ]);
+        }
 
-        if($request->leave_types)
-        {
-            
-
+        /**
+         * Update / Create Leave Balances
+         */
+        if ($request->leave_types) {
             foreach ($request->leave_types as $leave) {
-            LeaveBalance::updateOrCreate(
-                [
-                    'user_id' => $user->id,
-                    'leave_type_id' => $leave['leave_type_id'],
-                    'year' => date('Y'),
-                ],
-                [
-                    'total_days' => $leave['total_days'],
-                    'remaining_days' => $leave['total_days'],
-
-                ]
-            );
+                LeaveBalance::updateOrCreate(
+                    [
+                        'user_id'       => $user->id,
+                        'leave_type_id' => $leave['leave_type_id'],
+                        'year'          => date('Y'),
+                    ],
+                    [
+                        'total_days'     => $leave['total_days'],
+                        'remaining_days' => $leave['total_days'],
+                    ]
+                );
             }
         }
 
-
-        
-
-
-        // $allowanceNames = $request->input('allowance_name', []);
-        // $allowanceValues = $request->input('allowance_value', []);
-        // $deductionNames = $request->input('deduction_name', []);
-        // $deductionValues = $request->input('deduction_value', []);
-        
-        // $allowances = [];
-        // for ($i = 0; $i < count($allowanceNames); $i++) {
-        //     $allowances[$allowanceNames[$i]] = $allowanceValues[$i] ?? 0;
+        /**
+         * Optional: Send email only if password changed
+         */
+        // if ($request->filled('password')) {
+        //     Mail::send(
+        //         'mails.new_employee',
+        //         [
+        //             'name'     => $user->name,
+        //             'email'    => $user->email,
+        //             'password' => $request->password,
+        //         ],
+        //         function ($message) use ($user) {
+        //             $message->from('support@kuvvets.com', 'Lockmytimes');
+        //             $message->to($user->email);
+        //             $message->subject('Employee Account Updated');
+        //         }
+        //     );
         // }
-        
-        // $deductions = [];
-        // for ($i = 0; $i < count($deductionNames); $i++) {
-        //     $deductions[$deductionNames[$i]] = $deductionValues[$i] ?? 0;
-        // }
-        
-        $user->compensationInfo()->updateOrCreate(
-            ['user_id' => $user->id],
-            [
-                'basic_salary' => $request->basic_salary,
-                'allowances'=> $request->allowances,
-                'deductions'=> $request->deductions,
-                'bank_account' => $request->bank_account,
-                'total_salary' => $request->total_salary,
-                'salary_payment_duration' => $request->salary_payment_duration
-            ]
-        );
 
-                $user->accountInfo()->updateOrCreate(
-            ['user_id' => $user->id],
-            [
-            'bank_name'=> $request->bank_name,
-            'routing_number'=> $request->routing_number,
-            'account_title'=> $request->account_title,
-            'iban_number' => $request->iban_number,
-            ]
-
-            );
-
-            $user->overTime()->updateOrCreate(
-            ['user_id' => $user->id],
-            [
-            'maximum_hours_limit'=> $request->maximum_hours_limit,
-            ]
-            );
-
-
-    
-        // $user->additionalInfo()->updateOrCreate(
-        //     ['user_id' => $user->id],[
-        //     'notes' => $request->notes,
-        //     'preferences' => $request->preferences,
-        // ]);
-    
-      
-            $response = ['status' => true, "message" => "User updated successfully"];
-            return response($response, 200);
-        
-    
+        return response([
+            'status'  => true,
+            'message' => 'Employee updated successfully',
+        ], 200);
     }
+
     
 
     public function changeStatus($id)
