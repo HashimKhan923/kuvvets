@@ -14,7 +14,7 @@ class ForkLiftController extends Controller
 {
     public function index()
     {
-        $forklifts = ForkLift::all();
+        $forklifts = ForkLift::with('location')->get();
         return response()->json(['forklifts' => $forklifts]);
     }
 
