@@ -64,7 +64,7 @@ class ForkLiftController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'sometimes|required|string|max:255',
             'model' => 'sometimes|nullable|string|max:255',
-            'serial_number' => 'sometimes|required|string|unique:fork_lifts,serial_number,' . $id,
+            'serial_number' => 'sometimes|required|string|unique:fork_lifts,serial_number,' . $request->id,
             'purchase_date' => 'sometimes|nullable|date',
             'status' => 'sometimes|nullable|string|max:50',
             'location_id' => 'sometimes|nullable|exists:locations,id',
