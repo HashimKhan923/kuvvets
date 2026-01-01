@@ -13,5 +13,4 @@ class Shift extends Model
         'days' => 'array',
     ];
 
-    protected $connection = 'tenant';
 }
