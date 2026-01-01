@@ -40,7 +40,6 @@ class ForkLiftController extends Controller
             'purchase_date' => $request->purchase_date,
             'status' => $request->status ?? 'available',
             'location_id' => $request->location_id,
-            'qr_code' => Str::uuid(),
         ]);
 
         return response()->json(['message' => 'Forklift created successfully', 'forklift' => $forklift], 201);
