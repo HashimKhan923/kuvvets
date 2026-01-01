@@ -55,7 +55,7 @@ class ProjectController extends Controller
 
     public function getUsersByManager($managerId)
     {
-        $users = User::with('personalInfo','jobInfo')->whereHas('jobInfo', function ($query) use ($managerId) {
+        $users = User::with('jobInfo')->whereHas('jobInfo', function ($query) use ($managerId) {
             $query->where('manager_id', $managerId);
         })->get();
 

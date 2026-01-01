@@ -140,7 +140,7 @@ class AuthController extends Controller
         $req->validate([
             'token' => 'required'
         ]);
-        $user = User::with('personalInfo', 'location', 'shift')->where('remember_token',$req->token)->first();
+        $user = User::with( 'location', 'shift')->where('remember_token',$req->token)->first();
         if($user == null)
         {
             
@@ -172,7 +172,7 @@ class AuthController extends Controller
             'password' => 'required',
             'confirm_password' => 'required|same:password',
         ]);
-        $user = User::with('personalInfo', 'location', 'shift')->where('remember_token','=',$req->token)->first();  
+        $user = User::with( 'location', 'shift')->where('remember_token','=',$req->token)->first();  
         if($user == null)
         {
             return response(['status' => false, 'message' => 'Token not match']);
