@@ -114,7 +114,7 @@ Route::group(['middleware' => ['auth.token']], function(){
                     Route::get('show','index');
                     Route::post('create','store');
                     Route::get('detail/{id}','show');
-                    Route::post('update/{id}','update');
+                    Route::post('update','update');
                     Route::get('delete/{id}','destroy');
                 });
             });

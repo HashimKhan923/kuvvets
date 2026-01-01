@@ -54,9 +54,9 @@ class ForkLiftController extends Controller
         return response()->json(['forklift' => $forklift]);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $forklift = ForkLift::find($id);
+        $forklift = ForkLift::find($requestid);
         if (!$forklift) {
             return response()->json(['message' => 'Forklift not found'], 404);
         }
