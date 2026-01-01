@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Lockmytimes</title>
+    <title>Welcome to kuvvets</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -54,13 +54,12 @@
 <tr>
     <td style="padding:20px; color:#333333; font-size:16px; line-height:1.6;">
         <h1 style="font-size:24px; color:#333333; margin-bottom:20px;">Hello {{$name}},</h1>
-        <p>Welcome to Lockmytimes! Your employee account has been activated, giving you access to track your work hours, manage tasks, and stay connected with your team through the dashboard.</p>
-        
+        <p>Welcome to kuvvets! Your employee account has been activated, giving you access to track your work hours, manage tasks, and stay connected with your team through the dashboard.</p>
+
         <p><strong>Your login details:</strong></p>
         <ul style="margin:20px 0; padding-left:20px; color:#666666;">
             <li><strong>Email:</strong> {{$email}}</li>
             <li><strong>Password:</strong> {{$password}}</li>
-            <li><strong>Product Key:</strong> {{$product_key}}</li>
         </ul>
 
         <p>For your security, we recommend logging in promptly and updating your password.</p>
@@ -68,7 +67,6 @@
         <p>As an Employee, you can:</p>
         <ul style="margin:20px 0; padding-left:20px; color:#666666;">
             <li>Log your work hours with ease.</li>
-            <li>Track assigned tasks and stay organized.</li>
             <li>Monitor your productivity through reports.</li>
             <li>Stay connected with your team and manager.</li>
         </ul>
@@ -100,7 +98,7 @@
                         </td>
 
                         <!-- Social Icons -->
-                        <td align="right" valign="top">
+                        <!-- <td align="right" valign="top">
                             <table cellpadding="0" cellspacing="0">
                                 <tr>
                                     <td colspan="5" align="right" style="font-size:14px; color:#000000; padding-bottom:10px;">
@@ -135,13 +133,13 @@
                                     </td>
                                 </tr>
                             </table>
-                        </td>
+                        </td> -->
                     </tr>
                 </table>
                 <table width="100%" cellpadding="0" cellspacing="0">
                     <tr>
                         <td align="center" style="border-top:1px solid #dddddd; padding-top:15px; font-size:12px; color:#000000;">
-                            © 2025 Lockmytimes, All Rights Reserved.
+                            © 2025 kuvvets, All Rights Reserved.
                         </td>
                     </tr>
                 </table>
