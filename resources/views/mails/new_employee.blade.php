@@ -75,7 +75,7 @@
         <table align="left" cellpadding="0" cellspacing="0" border="0" style="margin:20px 0;">
             <tr>
                 <td align="left">
-                    <a href="https://dashboard.lockmytimes.com/auth/login" class="cta-button">Go to Dashboard</a>
+                    <a href="https://dashboard.kuvvets.com/auth/login" class="cta-button">Go to Dashboard</a>
                 </td>
             </tr>
         </table>
@@ -83,7 +83,7 @@
         <p>If you have any questions or need assistance, our support team is always ready to help. Reach out anytime at 
             <a href="mailto:support@kuvvets.com">support@kuvvets.com</a>.
         </p>
-        <p>Best regards,<br>Lockmytimes Team</p>
+        <p>Best regards,<br>kuvvets Team</p>
     </td>
 </tr>
 
