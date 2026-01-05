@@ -29,11 +29,10 @@ class UserController extends Controller
 {
     public function index(Request $request)
     {
-        $all_users = User::with(['shift', 'department','forklift','role','overTime','location'])->where('role_id','!=',1)->get();
+        $all_users = User::with(['shift', 'department','forklift','role','overTime','location','attachments'])->where('role_id','!=',1)->get();
 
-       
-        return response()->json(['all_users'=>$all_users]);  
-        
+        return response()->json(['all_users'=>$all_users]);
+
     }
 
 
@@ -189,6 +188,22 @@ class UserController extends Controller
             'forklift_id'    => $request->forklift_id,
             'status'         => $request->status ?? 1,
         ]);
+
+        /**
+         * Update user attachments
+         */
+        if ($request->hasFile('attachments')) {
+            foreach ($request->file('attachments') as $file) {
+                if ($file->isValid()) {
+                    $fileName = time() . '_' . $file->getClientOriginalName();
+                    $file->move(public_path('user_attachments'), $fileName);
+                    UserAttachment::create([
+                        'user_id' => $user->id,
+                        'file_path' => 'user_attachments/' . $fileName,
+                    ]);
+                }
+            }
+        }
 
         /**
          * Update password only if provided
