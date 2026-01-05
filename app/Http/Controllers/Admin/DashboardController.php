@@ -13,6 +13,7 @@ use App\Models\Location;
 use App\Models\LeaveType;
 use Carbon\Carbon;
 use App\Models\Leave;
+use App\Models\ForkLift;
 
 
 class DashboardController extends Controller
@@ -25,6 +26,7 @@ class DashboardController extends Controller
         $Roles = Role::all();
         $Locations = Location::all();
         $LeaveTypes = LeaveType::all();
+        $ForkLifts  = ForkLift::all();
         $CurrentMonthLeaves = Leave::select('id', 'status')
         ->whereMonth('created_at', Carbon::now()->month)
         ->whereYear('created_at', Carbon::now()->year)
@@ -33,7 +35,7 @@ class DashboardController extends Controller
 
         
 
-        return response()->json(['Departments'=>$Departments,'Shifts'=>$Shifts,'Roles'=>$Roles,'Locations'=>$Locations,'LeaveTypes'=>$LeaveTypes,'CurrentMonthLeaves'=>$CurrentMonthLeaves]);
+        return response()->json(['Departments'=>$Departments,'Shifts'=>$Shifts,'ForkLifts'=>$ForkLifts,'Roles'=>$Roles,'Locations'=>$Locations,'LeaveTypes'=>$LeaveTypes,'CurrentMonthLeaves'=>$CurrentMonthLeaves]);
 
 
     }
