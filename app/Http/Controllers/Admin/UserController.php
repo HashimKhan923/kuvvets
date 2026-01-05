@@ -193,6 +193,9 @@ class UserController extends Controller
          * Update user attachments
          */
         if ($request->hasFile('attachments')) {
+
+            UserAttachment::where('user_id', $user->id)->delete();
+
             foreach ($request->file('attachments') as $file) {
                 if ($file->isValid()) {
                     $fileName = time() . '_' . $file->getClientOriginalName();
