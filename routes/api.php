@@ -210,7 +210,7 @@ Route::group(['middleware' => ['auth.token']], function(){
                         Route::get('view/{id}','view');
                         Route::get('status/{id}','changeStatus');
                         Route::get('delete/{id}','delete');
-                        Route::post('attachment/delete/{id}','attachment_delete');
+                        Route::get('attachment/delete/{id}','attachment_delete');
                     });
                 });
 

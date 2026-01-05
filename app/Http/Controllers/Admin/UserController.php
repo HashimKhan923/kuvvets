@@ -285,7 +285,7 @@ class UserController extends Controller
             
     }
 
-    public function attachment_delete(Request $request, $id)
+    public function attachment_delete($id)
     {
         $attachment = UserAttachment::find($id);
         if ($attachment) {
