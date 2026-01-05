@@ -17,7 +17,6 @@ class LeaveController extends Controller
     {
         $leaves = Leave::with([
             'user.leaveBalances.leaveType',
-            'user.personalInfo',
             'leaveType',
             'approver'
         ])->get();
