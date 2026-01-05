@@ -133,18 +133,11 @@ class UserController extends Controller
 
     public function view($id)
     {
-        $data = User::with(['shift', 'department', 'role','leaveBalance'])
+        $data = User::with(['shift', 'department', 'role','leaveBalance','attachments'])
                     ->where('id', $id)
                     ->firstOrFail();
-    
-        $departments = Department::all();
-        $shifts = Shift::all();
-        $roles = Role::all();
-        $managers = User::whereHas('role', function($query) {
-            $query->where('name','manager');
-        })->get();
-    
-        return response()->json(['data'=>$data]);  
+
+        return response()->json(['data'=>$data]);
     }
 
     public function update(Request $request, $id)
@@ -291,4 +284,15 @@ class UserController extends Controller
         return response($response, 200);
             
     }
+
+    public function attachment_delete(Request $request, $id)
+    {
+        $attachment = UserAttachment::find($id);
+        if ($attachment) {
+            $attachment->delete();
+            return response()->json(['status' => true, 'message' => 'Attachment deleted successfully.']);
+        }
+        return response()->json(['status' => false, 'message' => 'Attachment not found.'], 404);
+    }
+
 }
