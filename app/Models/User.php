@@ -102,6 +102,11 @@ class User extends Authenticatable
         return $this->belongsTo(User::class);
     }
 
+    public function attachments()
+    {
+        return $this->hasMany(UserAttachment::class);
+    }
+
     public function subordinates()
     {
         return $this->hasMany(User::class, 'manager_id', 'id');

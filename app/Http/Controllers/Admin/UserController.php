@@ -22,6 +22,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Mail;
+use App\Models\UserAttachment;
 
 
 class UserController extends Controller
@@ -73,6 +74,10 @@ class UserController extends Controller
             'forklift_id' => $request->forklift_id,
         ]);
 
+        
+
+
+
         if($request->leave_types)
         {
             foreach ($request->leave_types as $leave) {
@@ -86,6 +91,8 @@ class UserController extends Controller
             ]);
         }
         }
+
+        
 
 
 
