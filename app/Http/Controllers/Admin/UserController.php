@@ -74,9 +74,18 @@ class UserController extends Controller
             'forklift_id' => $request->forklift_id,
         ]);
 
-        
-
-
+        if ($request->hasFile('attachments')) {
+            foreach ($request->file('attachments') as $file) {
+                if ($file->isValid()) {
+                    $fileName = time() . '_' . $file->getClientOriginalName();
+                    $file->move(public_path('user_attachments'), $fileName);
+                    UserAttachment::create([
+                        'user_id' => $user->id,
+                        'file_path' => 'user_attachments/' . $fileName,
+                    ]);
+                }
+            }
+        }
 
         if($request->leave_types)
         {
@@ -92,8 +101,8 @@ class UserController extends Controller
         }
         }
 
-        
 
+        
 
 
 
