@@ -140,9 +140,9 @@ class UserController extends Controller
         return response()->json(['data'=>$data]);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $user = User::findOrFail($id);
+        $user = User::findOrFail($request->user_id);
 
         /**
          * Handle profile image upload
