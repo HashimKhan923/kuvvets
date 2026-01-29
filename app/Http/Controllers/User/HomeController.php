@@ -51,7 +51,7 @@ class HomeController extends Controller
 
         $user = User::with('leaveBalance','overTime')->where('id',$id)->first();
         $shiftk = Shift::where('id',$user->shift_id)->first();
-        $department = Department::where('id',$user->jobInfo->department_id)->first();
+        $department = Department::where('id',$user->department_id)->first();
         $location = Location::where('id',$user->location_id)->first();
 
         $shift = Carbon::parse($shiftk->time_to)->diff(Carbon::parse($shiftk->time_from));
