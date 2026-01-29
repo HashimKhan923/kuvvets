@@ -42,7 +42,7 @@ class AttendenceController extends Controller
             });
 
 
-        $users = User::with('personalInfo')->where('role_id',2)->get();
+        $users = User::where('role_id',2)->get();
 
         if ($request->wantsJson()) {
             return response()->json(['attendences'=>$attendences,'users'=>$users]);  
