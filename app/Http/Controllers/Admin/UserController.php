@@ -53,7 +53,7 @@ class UserController extends Controller
 
         User::create([
             'uu_id' => $request->employee_id,
-            'name' => $request->first_name,
+            'name' => $request->name,
             'email' => $request->email,
             'phone' => $request->phone,
             'address' => $request->address,
@@ -163,7 +163,7 @@ class UserController extends Controller
          */
         $user->update([
             'uu_id'          => $request->employee_id,
-            'name'           => $request->first_name,
+            'name'           => $request->name,
             'email'          => $request->email,
             'phone'          => $request->phone,
             'address'        => $request->address,
