@@ -132,8 +132,7 @@ public function detail($id)
 
         $check_user = User::where('id', $user_id)->first();
         $check_shift = Shift::where('id', $check_user->shift_id)->first();
-        $department = JobInfo::where('user_id',$user_id)->first();
-        $department = Department::where('id',$department->department_id)->first();
+        $department = Department::where('id',$check_user->department_id)->first();
         
 
         $ShiftTimeIn = Carbon::parse($check_shift->time_from);
