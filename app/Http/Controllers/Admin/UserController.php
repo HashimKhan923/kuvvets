@@ -51,7 +51,7 @@ class UserController extends Controller
             }
         }
 
-        User::create([
+      $user =  User::create([
             'uu_id' => $request->employee_id,
             'name' => $request->name,
             'email' => $request->email,
