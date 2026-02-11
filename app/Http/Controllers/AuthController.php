@@ -105,7 +105,7 @@ class AuthController extends Controller
                 'mails.password-reset',
                 [
                     'token'=>$token,
-                    'name'=>$query->personalInfo->first_name,
+                    'name'=>$query->name,
                 ], 
             
             function ($message) use ($query) {
