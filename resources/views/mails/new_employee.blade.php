@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Welcome to Kuvvet!</title>
-
 <style>
 body{
     margin:0;
@@ -14,7 +13,6 @@ body{
 }
 </style>
 </head>
-
 <body>
 
 <table width="100%" cellpadding="0" cellspacing="0" bgcolor="#f4f4f4">
@@ -26,7 +24,7 @@ body{
 
 <!-- HEADER -->
 <tr>
-<td align="center" style="padding:15px 20px 15px 20px;">
+<td align="center" style="padding:15px 20px;">
 
   <table width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #CBA557; border-radius:10px; background-color:#1A1A1A;">
     <tr>
@@ -43,77 +41,68 @@ body{
 <!-- BANNER -->
 <tr>
 <td align="center" style="padding:0 20px 0px;">
-
-<table width="100%" cellpadding="0" cellspacing="0"
-style="border:1.5px solid #CBA557; border-radius:14px;">
-<tr>
-<td>
-<img src="https://skartistic.com/wp-content/uploads/2026/02/klk.png"
-alt="Welcome Banner"
-width="100%"
-style="display:block; border-radius:12px;">
-</td>
-</tr>
-</table>
-
+  <table width="100%" cellpadding="0" cellspacing="0" style="border:1.5px solid #CBA557; border-radius:14px;">
+    <tr>
+      <td>
+        <img src="https://skartistic.com/wp-content/uploads/2026/02/gg.png"
+             alt="Welcome Banner"
+             width="100%"
+             style="display:block; border-radius:12px;">
+      </td>
+    </tr>
+  </table>
 </td>
 </tr>
 
 <!-- CONTENT -->
 <tr>
-<td style="padding:20px; color:#ffffff;">
+<td style="padding:22px; color:#ffffff; font-size:15px; line-height:1.6;">
 
-<h1 style="color:#cba557; font-size:24px; margin-bottom:14px;">
-Welcome to Kuvvet
+<h1 style="color:#CBA557; font-size:22px; margin-bottom:10px; font-weight:normal;">
+Employee Account Created
 </h1>
 
-        <h1 style="font-size:24px; color:#333333; margin-bottom:20px;">Hello {{$name}},</h1>
-        <p>Your employee account has been activated, giving you access to track your work hours, manage tasks, and stay connected with your team through the dashboard.</p>
+<p style="color:#ffffff; font-size:16px; margin:10px 0;">Hello {{$name}},</p>
 
-        <p><strong>Your login details:</strong></p>
-        <ul style="margin:20px 0; padding-left:20px; color:#666666;">
-            <li><strong>Email:</strong> {{$email}}</li>
-            <li><strong>Password:</strong> {{$password}}</li>
-        </ul>
+<p style="color:#ffffff; font-size:15px; margin:10px 0;">
+Your employee account has been activated, giving you access to track your work hours, manage tasks, and stay connected with your team through the dashboard.
+</p>
 
-        <p>For your security, we recommend logging in promptly and updating your password.</p>
+<p style="margin:10px 0;"><strong style="color:#CBA557;">Your login details:</strong></p>
+<table cellpadding="5" cellspacing="0" style="margin:10px 0; color:#ffffff;">
+<tr><td><strong>Email:</strong></td><td>{{$email}}</td></tr>
+<tr><td><strong>Password:</strong></td><td>{{$password}}</td></tr>
+</table>
 
-        <p>As an Employee, you can:</p>
-        <ul style="margin:20px 0; padding-left:20px; color:#666666;">
-            <li>Log your work hours with ease.</li>
-            <li>Monitor your productivity through reports.</li>
-            <li>Stay connected with your team and manager.</li>
-        </ul>
+<p style="margin:10px 0;">
+For your security, we recommend logging in promptly and updating your password.
+</p>
 
-<p>Our services include:</p>
-
-<ul style="padding-left:20px; margin:0;">
-  <li style="margin-bottom:8px;">Logistics (Warehousing & Transportation)</li>
-  <li style="margin-bottom:8px;">Material Handling Equipment</li>
-  <li style="margin-bottom:8px;">Value Additions Services</li>
-  <li style="margin-bottom:8px;">Heavy Machinery & Crane Rentals</li>
-  <li style="margin-bottom:0;">Distribution</li>
+<p style="margin:10px 0;"><strong style="color:#CBA557;">As an Employee, you can:</strong></p>
+<ul style="margin:10px 0 10px 20px; color:#ffffff;">
+<li>Log your work hours with ease.</li>
+<li>Monitor your productivity through reports.</li>
+<li>Stay connected with your team and manager.</li>
 </ul>
+
 
 <table cellpadding="0" cellspacing="0" style="margin-top:16px;">
 <tr>
 <td bgcolor="#CBA557" style="border-radius:6px;">
-<a href="#"
-style="display:inline-block; padding:10px 20px; color:#ffffff; text-decoration:none; font-size:15px;">
-Visit Website
+<a href="dashboard.kuvvets.com" style="display:inline-block; padding:10px 20px; color:#ffffff; text-decoration:none; font-size:15px;">
+Go To Dashboard
 </a>
 </td>
 </tr>
 </table>
 
-<p style="margin-top:16px;">
+<p style="margin-top:16px; color:#ffffff;">
 Need help? Contact
-<a href="mailto:support@kuvvets.com" style="color:#CBA557;">
-support@kuvvets.com
-</a>
+<a href="mailto:support@kuvvets.com" style="color:#CBA557;">support@kuvvets.com</a>
 </p>
-<p style="margin:0;">Regards,</p>
-<p style="margin:2px 0 0 0;">Team Kuvvet</p>
+
+<p style="margin:0; color:#ffffff;">Regards,</p>
+<p style="margin:2px 0 0 0; color:#ffffff;">Team Kuvvet</p>
 
 </td>
 </tr>
@@ -122,8 +111,7 @@ support@kuvvets.com
 <tr>
 <td align="center" style="padding:0 20px 20px 20px;">
 
-<table width="100%" cellpadding="0" cellspacing="0"
-style="border:1px solid #CBA557; border-radius:12px; background-color:#1A1A1A;">
+<table width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #CBA557; border-radius:12px; background-color:#1A1A1A;">
 <tr>
 <td style="padding:16px;">
 
@@ -132,15 +120,13 @@ style="border:1px solid #CBA557; border-radius:12px; background-color:#1A1A1A;">
 <tr>
 <td align="left" width="50%">
 <img src="https://kuvvets.com/assets/kuvvet-logo-NJHkn-2N.png"
-alt="Kuvvet Logo"
-width="110"
-style="display:block;">
+alt="Kuvvet Logo" width="110" style="display:block;">
 </td>
 
 <td align="right" width="50%" style="text-align:right;">
 <p style="color:#ffffff; font-size:14px; margin:0 0 8px 0;">Follow us on social media</p>
 
-<!-- Social Icons Smaller -->
+<!-- Social Icons -->
 <a href="https://youtube.com" target="_blank" style="margin-left:4px; text-decoration:none;">
 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#CBA557" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.95C18.31 4 12 4 12 4s-6.31 0-8.59.47a2.78 2.78 0 0 0-1.95 1.95A29.64 29.64 0 0 0 1 12a29.64 29.64 0 0 0 .47 5.58 2.78 2.78 0 0 0 1.95 1.95C5.69 20 12 20 12 20s6.31 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29.64 29.64 0 0 0 23 12a29.64 29.64 0 0 0-.46-5.58z"></path>
