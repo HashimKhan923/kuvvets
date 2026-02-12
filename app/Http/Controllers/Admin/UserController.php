@@ -100,6 +100,12 @@ class UserController extends Controller
         }
         }
 
+        $over_time = OverTime::create([
+            'user_id' => $user->id,
+            'maximum_hours_limit'=> $request->maximum_hours_limit,
+            'status' => 1,
+        ]);
+
 
         
 
@@ -133,7 +139,7 @@ class UserController extends Controller
 
     public function view($id)
     {
-        $data = User::with(['shift', 'department', 'role','leaveBalance','attachments'])
+        $data = User::with(['shift', 'overTime','department', 'role','leaveBalance','attachments'])
                     ->where('id', $id)
                     ->firstOrFail();
 
@@ -228,6 +234,13 @@ class UserController extends Controller
                 );
             }
         }
+
+            $user->overTime()->updateOrCreate(
+            ['user_id' => $user->id],
+            [
+            'maximum_hours_limit'=> $request->maximum_hours_limit,
+            ]
+            );
 
         /**
          * Optional: Send email only if password changed
