@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Time extends Model
 {
 
-    protected $fillable = ['user_id', 'time_in', 'time_out', 'status', 'late_status'];
+    protected $fillable = ['user_id', 'time_in', 'time_out', 'status', 'late_status','over_time','total_time','date'];
 
     
 
@@ -31,6 +31,8 @@ class Time extends Model
     {
         return $this->hasOne(AttendenceRequest::class, 'time_id');
     }
+
+    
 
 
     use HasFactory;
