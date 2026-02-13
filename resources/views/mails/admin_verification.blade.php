@@ -45,10 +45,10 @@ alt="Kuvvet Logo" width="130" style="display:block;">
 style="border:1.5px solid #CBA557; border-radius:14px;">
 <tr>
 <td>
-<img src="https://skartistic.com/wp-content/uploads/2026/02/HH.png"
+<!-- <img src="https://skartistic.com/wp-content/uploads/2026/02/HH.png"
 alt="Verification Banner"
 width="100%"
-style="display:block; border-radius:12px;">
+style="display:block; border-radius:12px;"> -->
 </td>
 </tr>
 </table>

@@ -46,7 +46,7 @@
         <!-- Banner -->
         <tr>
             <td>
-                <img src="https://skartistic.com/wp-content/uploads/2025/08/welcome-to-lockmytimes-gif.gif" alt="Welcome Banner" width="100%" style="display:block;">
+                <!-- <img src="https://skartistic.com/wp-content/uploads/2025/08/welcome-to-lockmytimes-gif.gif" alt="Welcome Banner" width="100%" style="display:block;"> -->
             </td>
         </tr>
 

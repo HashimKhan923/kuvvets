@@ -44,10 +44,10 @@ body{
   <table width="100%" cellpadding="0" cellspacing="0" style="border:1.5px solid #CBA557; border-radius:14px;">
     <tr>
       <td>
-        <img src="https://skartistic.com/wp-content/uploads/2026/02/gg.png"
+        <!-- <img src="https://skartistic.com/wp-content/uploads/2026/02/gg.png"
              alt="Welcome Banner"
              width="100%"
-             style="display:block; border-radius:12px;">
+             style="display:block; border-radius:12px;"> -->
       </td>
     </tr>
   </table>

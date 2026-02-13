@@ -45,10 +45,10 @@ alt="Kuvvet Logo" width="130" style="display:block;">
 style="border:1.5px solid #CBA557; border-radius:14px;">
 <tr>
 <td>
-<img src="https://skartistic.com/wp-content/uploads/2026/02/lll.png"
+<!-- <img src="https://skartistic.com/wp-content/uploads/2026/02/lll.png"
 alt="Leave Status Banner"
 width="100%"
-style="display:block; border-radius:12px;">
+style="display:block; border-radius:12px;"> -->
 </td>
 </tr>
 </table>
