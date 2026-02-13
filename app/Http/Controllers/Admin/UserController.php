@@ -121,7 +121,7 @@ class UserController extends Controller
                 'password' => $request->password,
             ],
             function ($message) use ($request) { 
-                $message->from('support@kuvvets.com','Lockmytimes');
+                $message->from('support@kuvvets.com','Kuvvats');
                 $message->to($request->email);
                 $message->subject('Employee Account Created');
             }

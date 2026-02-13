@@ -109,7 +109,7 @@ class AuthController extends Controller
                 ], 
             
             function ($message) use ($query) {
-                $message->from('support@kuvvets.com','Lockmytimes');
+                $message->from('support@kuvvets.com','Kuvvats');
                 $message->to($query->email);
                 $message->subject('Forget Password');
             });
